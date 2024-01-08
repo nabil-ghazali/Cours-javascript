@@ -3,7 +3,12 @@
 
 function afficherResultat(score,nbMotsProposés){
     // On affiche le score de l'utilisateur
-    console.log("Votre score est de " + score + " sur" + nbMotsProposés)
+    // console.log("Votre score est de " + score + " sur" + nbMotsProposés)
+    let spanScore = document.querySelector(".zoneScore span")
+    let affichageScore = `${score} / ${nbMotsProposés}`
+    spanScore.innerText = affichageScore 
+    
+
 }
 
 
