@@ -47,15 +47,3 @@ function lancerJeu(){
 }
 
 
-// let baliseZoneProposition = document.getElementById("zoneProposition");
-// console.log(baliseZoneProposition);
-
-// let listInputs = document.querySelectorAll(".zoneChoix input")
-// console.log(listInputs);
-
-// let baliseZonePropositionSpan = document.querySelector("#zoneProposition span");
-// console.log(baliseZonePropositionSpan);
-
-// for(let i =0; i < listInputs.length; i++){
-//     console.log(listInputs[i])
-// }
