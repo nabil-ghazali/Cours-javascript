@@ -1,54 +1,44 @@
-// const listeMots = ["Cachalot","Pétunia","Serviette"];
-// const listePhrases = ["Pas de panique!","La vie,l'univers et le reste", "Merci pour le poisson"]
-
-function afficherResultat(score,nbMotsProposés){
-    // On affiche le score de l'utilisateur
-    // console.log("Votre score est de " + score + " sur" + nbMotsProposés)
-    let spanScore = document.querySelector(".zoneScore span")
-    let affichageScore = `${score} / ${nbMotsProposés}`
-    spanScore.innerText = affichageScore 
-    
-
+function afficherProposition(proposition){
+    let zoneProposition = document.querySelector(".zoneProposition")
+    zoneProposition.innerText = proposition
 }
 
 
-function choisirPhrasesOuMots (){
-        let choix
-    //Tant que l'utilisateur fais un choix diffèrents de mot ou phrase, on lui redemande
-    while( choix !== "mots" && choix !=="phrases"){
-        choix = prompt("Veuillez choisir dans la liste : mots ou phrases");
-        }
-        return choix
-}
 
-function lancerBoucleDeJeu(listeProposition){
+function lancerJeu() {
+// Initialisation
     let score = 0
-        for(i = 0 ; i < listeProposition.length; i++){
-            motUtilisateur = prompt("Entrez le mot: " + listeProposition[i])
-            if(motUtilisateur === (listeProposition[i])){
-                score ++
-            }                 
-        }
-    return score
-}    
-
-
-function lancerJeu(){
-    let choix = choisirPhrasesOuMots()
-    //Cette variable va contenir le score de l'utilisateur, il commence à zéro
-    let score = 0
-    let nbMotsProposés = 0
+    let nbMotsProposés = 0  
+    let i = 0
+    let btnValiderMot = document.getElementById("btnValiderMot")
+    let inputEcriture = document.getElementById("inputEcriture")
     
-    if (choix ==='mots') {
-        score = lancerBoucleDeJeu(listeMots)
-        nbMotsProposés = listeMots.length
-    }else{ 
-        score = lancerBoucleDeJeu(listePhrases)
-        nbMotsProposés = listePhrases.length
-    }
+    afficherProposition(listeMots[i])
+    btnValiderMot.addEventListener("click",()=>{
+
+        //Affichage de ma liste de mots dans la zone affichage
+        i++
+        inputEcriture.value = "" 
+        // lorsque la valeur est indéfini à la fin de ma liste de mots, j'affiche la fin du jeu
+        if(listeMots[i] === undefined){
+            afficherProposition ("Le jeu est fini")
+            // je désactive le bouton valider    
+            btnValiderMot.disabled = true
+            console.log(btnValiderMot);
+        } else {
+            afficherProposition(listeMots[i])
+                         
+        } 
+
         
-     afficherResultat(score,nbMotsProposés)
+    })
+    
+    
 
+
+
+    //  afficherResultat(score,nbMotsProposés);
+ 
 }
 
 
