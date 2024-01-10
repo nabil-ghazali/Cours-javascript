@@ -3,22 +3,28 @@ function afficherProposition(proposition){
     zoneProposition.innerText = proposition
 }
 
+function  afficherResultat(score,proposition){
+    let zoneScore = document.querySelector(".zoneScore")    
+    zoneScore.innerText = `${score} / ${proposition}`
+
+}
+
 
 let motSaisi
 function lancerJeu() {
 // Initialisation
-    let score = 0
-     
+    
     let i = 0
+    let score = 0
     let btnValiderMot = document.getElementById("btnValiderMot")
     let inputEcriture = document.getElementById("inputEcriture")
     
     afficherProposition(listeMots[i])
    btnValiderMot.addEventListener("click",()=>{
-
+    
         if(inputEcriture.value === listeMots[i]){
             score++
-            console.log(score)
+            afficherResultat(score,i)
         }
         
         //Affichage de ma liste de mots dans la zone affichage
@@ -40,12 +46,12 @@ function lancerJeu() {
             
         } 
     
-        
+        afficherResultat(score,i)
+            
     })
     
 
-    //   afficherResultat(score,i);
- 
+     
 }
 
 
